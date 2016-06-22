@@ -23,4 +23,4 @@ We'll be using Heroku as our production server. Heroku is a "Platform as a Servi
 ## Technical Requirements and Grading Rubric
  - Ensure your code passes ESLint
  - DO NOT create your Heroku app with a default name. If you do accidentally, rename it. Or blow it away, and start again.
- - Link to your live site in your README, for whichever repo you deploy.
+ - Link to this live site in your Pull Request.
