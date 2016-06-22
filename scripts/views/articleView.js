@@ -3,7 +3,7 @@
   // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
   var articleView = {};
 
-  var renderArticleInfo = function(article, scriptTemplateId) {
+  articleView.renderArticleInfo = function(article, scriptTemplateId) {
     var template = Handlebars.compile($(scriptTemplateId).text());
 
     article.daysAgo = parseInt((new Date() - new Date(article.publishedOn))/60/60/24/1000);
@@ -63,12 +63,12 @@
     $('#filters').fadeIn();
     Article.allArticles.forEach(function(a){
       if($('#category-filter option:contains("'+ a.category + '")').length === 0) {
-        $('#category-filter').append(renderArticleInfo(a, '#category-filter-template'));
+        $('#category-filter').append(articleView.renderArticleInfo(a, '#category-filter-template'));
       };
       if($('#author-filter option:contains("'+ a.author + '")').length === 0) {
-        $('#author-filter').append(renderArticleInfo(a, '#author-filter-template'));
+        $('#author-filter').append(articleView.renderArticleInfo(a, '#author-filter-template'));
       };
-      $('#articles').append(renderArticleInfo(a, '#article-template'));
+      $('#articles').append(articleView.renderArticleInfo(a, '#article-template'));
     });
 
     articleView.handleCategoryFilter();
