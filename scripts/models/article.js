@@ -2,13 +2,10 @@
   function Article (opts) {
     Object.keys(opts).forEach(function(e, index, keys) {
       this[e] = opts[e];
-    },this);
+    }, this);
   }
 
   Article.allArticles = [];
-
-  // TODO: Convert the model .toHTML method to a proper View method,
-  //  since it handles the presentation of the data:
 
   Article.createTable = function() {
     webDB.execute(

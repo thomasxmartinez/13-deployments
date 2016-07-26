@@ -1,6 +1,5 @@
 (function(module) {
   var newController = {
-
     index: function() {
       $('#ajax-spinner').hide();
       $('.tab-content').hide();

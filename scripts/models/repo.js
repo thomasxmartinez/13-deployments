@@ -1,27 +1,22 @@
 (function(module) {
-  var repos = {};
+  var reposObj = {};
 
-  repos.allRepos = [];
+  reposObj.allRepos = [];
 
-  // TODO: Refactor this ajax method into a get method to the proxy
-  //  'end point' provided by server.js.
-  repos.requestRepos = function(callback) {
-    $.get('/github/users/codefellows-seattle-301d7/repos' +
+  reposObj.requestRepos = function(callback) {
+    // TODO: refactor this request into an $.ajax call 
+    $.get('/github/users/codefellows-seattle-301d9/repos' +
           '?per_page=10&sort=updated')
           .done(function(data) {
-            repos.allRepos = data;
+            reposObj.allRepos = data;
           }).done(callback);
   };
 
-  repos.withTheAttribute = function(attr) {
-    /* DONE: This Model method filters the full repos collection based
-        on a particular attribute. You could use this to filter all
-        repos that have a non-zero `forks_count`, `stargazers_count`,
-        or `watchers_count`. */
-    return repos.allRepos.filter(function(aRepo) {
+  reposObj.withTheAttribute = function(attr) {
+    return reposObj.allRepos.filter(function(aRepo) {
       return aRepo[attr];
     });
   };
 
-  module.repos = repos;
+  module.reposObj = reposObj;
 })(window);
