@@ -1,14 +1,11 @@
 (function(module) {
   var reposObj = {};
 
-  reposObj.allRepos = [];
-  reposObj.followers = [];
-
   reposObj.requestRepos = function(callback) {
-    // NOTE: refactor this request into an $.ajax call
+    // NOTE: refactor this request into an $.get call
     $.when(
      $.ajax({
-       url: 'https://api.github.com/users/codefellows-seattle-301d9/repos' +
+       url: 'https://api.github.com/users/codefellows-seattle-301d14/repos' +
             '?per_page=10' +
             '&sort=updated',
        type: 'GET',
